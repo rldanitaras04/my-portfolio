@@ -408,8 +408,8 @@ button {
 }
 
 .hero__orb {
-  width: 360px;
-  height: 360px;
+  width: 520px;
+  height: 520px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
   display: flex;
@@ -419,8 +419,8 @@ button {
 }
 
 .hero__photo {
-  width: 340px;
-  height: 340px;
+  width: 500px;
+  height: 500px;
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid var(--bg-secondary);
