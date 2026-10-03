@@ -351,7 +351,7 @@ main section[id] {
 .hero {
   padding: 2rem 0;
   padding-top: calc(2rem + 64px);
-  background: linear-gradient(to bottom, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  background: transparent;
 }
 
 .hero__container {
