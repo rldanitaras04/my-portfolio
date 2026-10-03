@@ -96,7 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initAchievements();
   initScrollProgress();
-  initCopyEmail();
 });
 
 /* ==========================================
@@ -355,28 +354,6 @@ function initScrollProgress() {
   }, { passive: true });
 }
 
-/* ==========================================
-   Copy Email
-   ========================================== */
-function initCopyEmail() {
-  const btn = document.getElementById('copy-email');
-  if (!btn) return;
-
-  btn.addEventListener('click', () => {
-    navigator.clipboard.writeText('rldanitaras@gmail.com').then(() => {
-      const originalText = btn.textContent;
-      btn.textContent = 'Copied!';
-      setTimeout(() => {
-        btn.textContent = originalText;
-      }, 2000);
-    }).catch(() => {
-      btn.textContent = 'Failed to copy';
-      setTimeout(() => {
-        btn.textContent = 'Copy Email';
-      }, 2000);
-    });
-  });
-}
 
 /* ==========================================
    Achievements (Data-Driven)
