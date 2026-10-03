@@ -52,6 +52,7 @@
   <a href="#main" class="skip-link">Skip to main content</a>
 
   <header class="site-header" id="top">
+    <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
     <nav class="nav" aria-label="Main navigation">
       <div class="nav__container">
         <a href="#home" class="nav__brand" aria-label="Home">RLD</a>
@@ -223,6 +224,11 @@
               <li>Community-centered Innovation</li>
               <li>Startup Development</li>
             </ul>
+
+            <h3 class="about__subtitle currently">Currently</h3>
+            <p class="currently-text">
+              Doctoral research in information technology, teaching, mentoring student projects, and exploring practical AI-assisted systems.
+            </p>
           </div>
         </div>
       </div>
@@ -613,6 +619,9 @@
             <h3 class="contact-card__title">Email</h3>
             <p class="contact-card__text">rldanitaras@gmail.com</p>
           </a>
+          <button type="button" id="copy-email" class="btn btn--small btn--secondary copy-email-btn" aria-label="Copy email address">
+            Copy Email
+          </button>
 
           <a href="https://github.com/rldanitaras04" target="_blank" rel="noopener noreferrer" class="contact-card">
             <h3 class="contact-card__title">GitHub</h3>
@@ -655,7 +664,7 @@
     <div class="modal__content">
       <button class="modal__close" type="button" aria-label="Close project details" data-close-modal>&times;</button>
 
-      <h2 id="modal-title" class="modal__title"></h2>
+      <h2 id="modal-title" class="modal__title" aria-live="polite"></h2>
       <p id="modal-category" class="modal__category"></p>
 
       <div class="modal__sections">

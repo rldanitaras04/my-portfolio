@@ -95,6 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initDynamicYear();
   initBackToTop();
   initAchievements();
+  initScrollProgress();
+  initCopyEmail();
 });
 
 /* ==========================================
@@ -163,7 +165,13 @@ function initActiveNav() {
       if (entry.isIntersecting) {
         const id = entry.target.getAttribute('id');
         navLinks.forEach(link => {
-          link.classList.toggle('active', link.getAttribute('data-nav') === id);
+          const isActive = link.getAttribute('data-nav') === id;
+          link.classList.toggle('active', isActive);
+          if (isActive) {
+            link.setAttribute('aria-current', 'page');
+          } else {
+            link.removeAttribute('aria-current');
+          }
         });
       }
     });
@@ -329,6 +337,44 @@ function initBackToTop() {
 
   btn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+/* ==========================================
+   Scroll Progress Bar
+   ========================================== */
+function initScrollProgress() {
+  const progressBar = document.getElementById('scroll-progress');
+  if (!progressBar) return;
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = `${progress}%`;
+  }, { passive: true });
+}
+
+/* ==========================================
+   Copy Email
+   ========================================== */
+function initCopyEmail() {
+  const btn = document.getElementById('copy-email');
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    navigator.clipboard.writeText('rldanitaras@gmail.com').then(() => {
+      const originalText = btn.textContent;
+      btn.textContent = 'Copied!';
+      setTimeout(() => {
+        btn.textContent = originalText;
+      }, 2000);
+    }).catch(() => {
+      btn.textContent = 'Failed to copy';
+      setTimeout(() => {
+        btn.textContent = 'Copy Email';
+      }, 2000);
+    });
   });
 }
 

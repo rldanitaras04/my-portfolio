@@ -208,6 +208,17 @@ button {
   z-index: 100;
 }
 
+.scroll-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background-color: var(--accent);
+  width: 0%;
+  transition: width 0.1s ease-out;
+  z-index: 101;
+}
+
 .nav__container {
   display: flex;
   align-items: center;
@@ -413,6 +424,11 @@ button {
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid var(--bg-secondary);
+  transition: transform 0.3s ease;
+}
+
+.hero__photo:hover {
+  transform: scale(1.03);
 }
 
 .hero__nodes {
@@ -525,6 +541,16 @@ button {
   font-size: 1.25rem;
 }
 
+.currently {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.currently-text {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+}
+
 .tag-list,
 .chip-list {
   display: flex;
@@ -625,12 +651,18 @@ button {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  position: relative;
+}
+
+.project-card__media:hover .project-card__image {
+  transform: scale(1.05);
 }
 
 .project-card__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
 .project-card__body {
@@ -987,6 +1019,13 @@ button {
   text-align: center;
 }
 
+.copy-email-btn {
+  margin: 0 auto;
+  margin-top: -1.5rem;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
 /* ==========================================
    Footer
    ========================================== */
@@ -1219,5 +1258,50 @@ button {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+}
+
+/* ==========================================
+   Print Styles
+   ========================================== */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .site-header,
+  .footer,
+  .btn,
+  .filter-btn,
+  .scroll-progress,
+  .nav__toggle,
+  .theme-toggle,
+  .hero__social,
+  .project-card__actions,
+  .back-to-top {
+    display: none !important;
+  }
+  
+  .hero,
+  .section,
+  .philosophy {
+    padding: 1rem 0;
+  }
+  
+  .project-card,
+  .skill-card,
+  .research-card,
+  .course-card,
+  .achievement-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+  
+  a[href]::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.8em;
+    color: #555;
   }
 }
