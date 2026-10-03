@@ -390,14 +390,14 @@ main section[id] {
 
 .hero__description {
   color: var(--text-secondary);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   font-size: 1.125rem;
 }
 
 .hero__cta {
   display: flex;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .hero__social {
